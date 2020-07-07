@@ -48,9 +48,11 @@ func main() {
 	var scope, collection string
 	collCounter := 1
 	scopeCounter := 1
-	for i := 0; i < options.numColls; i++ {
-		if i > options.collsPerScope {
+	scope = options.prefix + fmt.Sprintf("_scope_%v", scopeCounter)
+	for i := 1; i <= options.numColls; i++ {
+		if i%options.collsPerScope == 0 {
 			collCounter = 1
+			scopeCounter++
 			scope = options.prefix + fmt.Sprintf("_scope_%v", scopeCounter)
 		}
 		collection = options.prefix + fmt.Sprintf("_collection_%v", collCounter)
