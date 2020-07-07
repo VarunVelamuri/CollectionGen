@@ -50,7 +50,7 @@ func main() {
 	scopeCounter := 1
 	scope = options.prefix + fmt.Sprintf("_scope_%v", scopeCounter)
 	for i := 1; i <= options.numColls; i++ {
-		if i%options.collsPerScope == 0 {
+		if options.collsPerScope != 1 && i%options.collsPerScope == 0 {
 			collCounter = 1
 			scopeCounter++
 			scope = options.prefix + fmt.Sprintf("_scope_%v", scopeCounter)
